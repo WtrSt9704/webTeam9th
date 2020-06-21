@@ -36,6 +36,7 @@
 			</div>
 			<p></p>
 			<div class="btt" onclick="login()">로그인</div>
+			<p></p><a href="signup.jsp"><div class="btt">회원가입</div></a>
 		</div>
 	</div>
 </body>
