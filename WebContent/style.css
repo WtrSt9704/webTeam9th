@@ -1,10 +1,18 @@
-input[type="text"]{border-radius: 5px;}
+input[type="text"], input[type="password"] {
+	border-radius: 5px;
+}
+
 div.basicbox{
+	text-align: center;
 	border-radius: 5px;
 	background-color: #FFA7A7;
 	padding : 10px;
 }
+
 .btt{
+	width: 90%;
+	border: 0;
+	font-size: 1em;
 	border-radius: 5px;
 	background-color: red;
 	color:yellow;
@@ -13,7 +21,7 @@ div.basicbox{
 	padding-right: 10px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	margin : 10px;
+	margin: 15px 10px 0;
 	text-align: center;
 	-ms-user-select: none;
 	-moz-user-select: -moz-none;
@@ -21,20 +29,44 @@ div.basicbox{
 	-khtml-user-select: none;
 	user-select:none;
 }
+
 .btt:hover{
 	background-color: #CC3D3D;
 }
-div.center{
-		width: 100%;
-		height: 100vh;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		justify-content: center;
 
-	}
+div.center{
+	width: 100%;
+	height: 100vh;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	text-align: center;
+
+}
+
+form[name="hwf"] {
+	display: inline-block;
+	text-align: left;
+}
+
+.label-login {
+	display: inline-block;
+	width: 80px;
+	padding-bottom: 10px;
+}
+
+.label-signup {
+	display: inline-block;
+	width: 120px;
+	padding-bottom: 10px;
+}
+
+.logo {
+	width:300px;
+}

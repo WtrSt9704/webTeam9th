@@ -1,13 +1,8 @@
 ﻿<%@ page contentType="text/html; charset=utf-8"%>
 <html>
 <head>
-<link type='text/css' rel='stylesheet' href='style.css'></link>
+<link type='text/css' rel='stylesheet' href='style.css'>
 <title>회원가입</title>
-<style>
-	input[type="button"]{
-		text-align: center;
-	}
-</style>
 <%@ include file="dbconn.jsp" %>
 <script type="text/javascript">
 	function check( ){
@@ -52,20 +47,24 @@
 </head>
 <body>
 	<div class="center">
-	<div>
-		<div><img src="토론.png" style="width:300px"></div>
+	<div style="text-align: center;">
+		<img class="logo" src="토론.png">
 		<div class="basicbox" style="text-align: center;">
 			<h4>회원가입</h4>
 			<form name="hwf" style="text-align: left;" action="processSignup.jsp" method="POST">
-				ID : <input type="text" name="id"><span id="chkbtt" class="btt" onclick="idchk()">중복검사</span><br>
-				별명              : <input type="text" name="name"><br>
-				비밀번호        : <input type="text" name="passwd"><br>
-				비밀번호 확인 : <input type="text" name="passwdc">
+				<label class="label-signup" for="id">ID : </label>
+				<input type="text" id="id" name="id">
+				<span id="chkbtt" class="btt" onclick="idchk()">중복검사</span> <br>
+				<label class="label-signup" for="name">별명 : </label>
+				<input type="text" id="name" name="name"> <br>
+				<label class="label-signup" for="passwd">비밀번호 : </label>
+				<input type="password" id="passwd" name="passwd"> <br>
+				<label class="label-signup" for="passwdc">비밀번호 확인 : </label>
+				<input type="password" id="passwdc" name="passwdc">
 				<input name="idchk" value="false" style="display:none; visibility:hidden;">
 			</form>
 			</div>
-			<p></p>
-			<div class="btt" onclick="check()">회원가입</div>
+			<button class="btt" onclick="check()">회원가입</button>
 		</div>
 	</div>
 </body>
