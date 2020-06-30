@@ -164,6 +164,7 @@
 			}
 		%>
 		<form id="form_write" action="submitComment.jsp" method="POST">
+			<input type="text" name="docnum" value="<%=num %>" hidden>
 			<textarea class="form-control" id="text_comment" name="comment" rows="4" placeholder="의견 작성" style="margin-top: 5%;"></textarea>
 			<div class="btn-group-toggle" data-toggle="buttons" style="text-align: center; margin-top: 2%;">
 				<label class="btn btn-secondary" id="label_pros" style="width:20%; margin: 1%;">
