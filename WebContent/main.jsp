@@ -14,8 +14,21 @@
 			});
 		});
 	</script>
+
 </head>
+
 <body>
+<%@ include file="dbconn.jsp" %>
+<%
+	ResultSet rs = null;
+	PreparedStatement pstmt = null;
+	String category, title;
+	int pros, comments, prosp, consp;
+	try {
+		String sql = "select * from document";
+		pstmt = conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+%>
 <div class="container-outer">
 	<div class="logo-main">
 		<img class="logo" src="resources/토론.png">
@@ -41,6 +54,7 @@
 
 	<div class="container-inner">
 		<table class="table table-striped table-bordered table-condensed">
+
 			<thead>
 			<tr>
 				<th style="width: 10%;">분류</th>
@@ -49,146 +63,62 @@
 				<th style="width: 10%;">참여</th>
 			</tr>
 			</thead>
-			<%-- 이후에 jsp로 구현 --%>
+
 			<tbody>
+			<%
+				while(rs.next()) {
+					category = rs.getString("category");
+					title = rs.getString("title");
+					pros = rs.getInt("pros");
+					comments = rs.getInt("comments");
+
+					if (comments > 0) {
+						prosp = pros * 100 / comments;
+						consp = 100 - prosp;
+					}
+					else {
+						prosp = 0;
+						consp = 0;
+					}
+			%>
 			<tr>
-				<td>정치</td>
+				<td><%=category %></td>
 				<td>
-					<a href="#">제목 1</a>
+					<a href="#"><%=title %></a>
 				</td>
 				<td>
 					<div class="progress">
-						<div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width:40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">찬성 40%</div>
-						<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width:60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">반대 60%</div>
+						<div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width:<%=prosp %>%" aria-valuenow="<%=prosp %>" aria-valuemin="0" aria-valuemax="100">찬성 <%=prosp %>%</div>
+						<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width:<%=consp %>%" aria-valuenow="<%=consp %>" aria-valuemin="0" aria-valuemax="100">반대 <%=consp %>%</div>
 					</div>
 				</td>
-				<td>30</td>
+				<td><%=comments %></td>
 			</tr>
-			<tr>
-				<td>사회</td>
-				<td>
-					<a href="#">제목 2</a>
-				</td>
-				<td>
-					<div class="progress">
-						<div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width:27%" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100">찬성 27%</div>
-						<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width:73%" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100">반대 73%</div>
-					</div>
-				</td>
-				<td>24</td>
-			</tr>
-			<tr>
-				<td>교육</td>
-				<td>
-					<a href="#">제목 3</a>
-				</td>
-				<td>
-					<div class="progress">
-						<div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width:80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">찬성 80%</div>
-						<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width:20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">반대 20%</div>
-					</div>
-				</td>
-				<td>10</td>
-			</tr>
-			<tr>
-				<td>문화</td>
-				<td>
-					<a href="#">제목 4</a>
-				</td>
-				<td>
-					<div class="progress">
-						<div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width:62%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="62">찬성 62%</div>
-						<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width:38%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="38">반대 38%</div>
-					</div>
-				</td>
-				<td>70</td>
-			</tr>
-			<tr>
-				<td>기타</td>
-				<td>
-					<a href="#">제목 5</a>
-				</td>
-				<td>
-					<div class="progress">
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">찬성 0%</div>
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">반대 0%</div>
-					</div>
-				</td>
-				<td>0</td>
-			</tr>
-			<tr>
-				<td>기타</td>
-				<td>
-					<a href="#">제목 6</a>
-				</td>
-				<td>
-					<div class="progress">
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">찬성 0%</div>
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">반대 0%</div>
-					</div>
-				</td>
-				<td>0</td>
-			</tr>
-			<tr>
-				<td>기타</td>
-				<td>
-					<a href="#">제목 7</a>
-				</td>
-				<td>
-					<div class="progress">
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">찬성 0%</div>
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">반대 0%</div>
-					</div>
-				</td>
-				<td>0</td>
-			</tr>
-			<tr>
-				<td>기타</td>
-				<td>
-					<a href="#">제목 8</a>
-				</td>
-				<td>
-					<div class="progress">
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">찬성 0%</div>
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">반대 0%</div>
-					</div>
-				</td>
-				<td>0</td>
-			</tr>
-			<tr>
-				<td>기타</td>
-				<td>
-					<a href="#">제목 9</a>
-				</td>
-				<td>
-					<div class="progress">
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">찬성 0%</div>
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">반대 0%</div>
-					</div>
-				</td>
-				<td>0</td>
-			</tr>
-			<tr>
-				<td>기타</td>
-				<td>
-					<a href="#">제목 10</a>
-				</td>
-				<td>
-					<div class="progress">
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">찬성 0%</div>
-						<div class="progress-bar bg-secondary progress-bar-striped" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">반대 0%</div>
-					</div>
-				</td>
-				<td>0</td>
-			</tr>
+			<%
+				}
+			%>
 			</tbody>
 		</table>
 
 		<div style="text-align: right;">
 			<button class="btn btn-primary" id="write_post">새 토론 만들기</button>
 		</div>
-	</div>
 
+	</div>
 </div>
+
+<%
+	} catch (SQLException ex) {
+		out.println("document 테이블 호출이 실패했습니다.<br>");
+		out.println("SQLException: " + ex.getMessage());
+	} finally {
+		if (rs != null)
+			rs.close();
+		if (pstmt != null)
+			pstmt.close();
+		if (conn != null)
+			conn.close();
+	}
+%>
 </body>
 </html>

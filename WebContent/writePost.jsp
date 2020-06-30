@@ -16,7 +16,7 @@
 					alert("제목을 입력해 주세요.");
 
 				else if ($('#category').val() === 'none')
-					alert("분류를 설정해 주세요.");
+					alert("분류를 선택해 주세요.");
 
 				else if ($.trim($('#post').val()) === '')
 					alert("내용을 입력해 주세요.");
@@ -57,7 +57,7 @@
 
 	<div class="container-inner" style="border: 1px solid gray; padding: 3%;">
 		<h2>글 쓰기</h2>
-		<form id="form_write" action="submit.jsp" method="POST">
+		<form id="form_write" action="submitPost.jsp" method="POST">
 			<div class="form-inline" style="margin: 40px 0 15px;">
 				<label for="title" style="margin-right: 10px;">제목:</label>
 				<input type="text" class="form-control" id="title" name="title" style="width: 70%;">
@@ -68,15 +68,15 @@
 				<label for="category" style="margin-right: 10px;">분류:</label>
 				<select class="form-control" id="category" name="category" style="width: 90px">
 					<option value="none">선택</option>
-					<option value="tkghk">사회</option>
-					<option value="rudwp">경제</option>
-					<option value="wjdcl">정치</option>
-					<option value="ansghk">문화</option>
-					<option value="rltnf">기술</option>
-					<option value="ghksrud">환경</option>
-					<option value="gjsqjq">헌법</option>
-					<option value="rydbr">교육</option>
-					<option value="etc">기타</option>
+					<option value="사회">사회</option>
+					<option value="경제">경제</option>
+					<option value="정치">정치</option>
+					<option value="문화">문화</option>
+					<option value="기술">기술</option>
+					<option value="환경">환경</option>
+					<option value="헌법">헌법</option>
+					<option value="교육">교육</option>
+					<option value="기타">기타</option>
 				</select>
 			</div>
 			<div style="margin-bottom: 15px;">

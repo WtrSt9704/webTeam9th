@@ -27,15 +27,14 @@ try {
 	if(rs.next()){
 %>
 <div class="basicbox">
-<p>이미  사용중인 id 입니다.<p/>
-
-		<button class="btt" onclick = "opener.document.hwf.id.focus(); window.close();">닫기</button>
+<p>이미  사용중인 id 입니다.</p>
+	<button class="btt" onclick = "opener.document.hwf.id.focus(); window.close();">닫기</button>
 </div>
 <%
 	}else{
 %>
 <div class="basicbox">
-<p>사용 가능 합니다.<p/>
+<p>사용 가능 합니다.</p>
 
 		<button class="btt" onclick = "ok()">닫기</button>
 </div>
