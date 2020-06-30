@@ -1,9 +1,13 @@
 ﻿<%@ page contentType="text/html; charset=utf-8"%>
 <html>
 <head>
-<link type='text/css' rel='stylesheet' href='style.css'>
+<link type='text/css' rel='stylesheet' href='resources/style.css'>
 <title>토론사이트</title>
 <script type="text/javascript">
+
+	// 엔터키 구현
+	function enterkey() { if (event.keyCode === 13) login(); }
+
 	function login( ){
 		var form = document.hwf;
 		var regExp2 = /[~!@$%<>^&*]/;
@@ -24,18 +28,18 @@
 <body>
 	<div class="center">
 		<div>
-			<div><img class="logo" src="토론.png"></div>
+			<div><img class="logo-start" src="resources/토론.png"></div>
 			<div class="basicbox">
 				<h2>로그인</h2>
 				<form name="hwf" action="processLogin.jsp" method="POST">
 					<label class="label-login" for="id">ID : </label>
 					<input type="text" id="id" name="id"> <br>
 					<label class="label-login" for="passwd">비밀번호 : </label>
-					<input type="password" id="passwd" name="passwd">
+					<input type="password" id="passwd" name="passwd" onkeypress="enterkey()">
 				</form>
 			</div>
-			<button class="btt" onclick="login()">로그인</button> <br>
-			<button class="btt" onclick="signup()">회원가입</button>
+			<button class="btt btt-login" id="login" onclick="login()">로그인</button> <br>
+			<button class="btt btt-login" id="signup" onclick="signup()">회원가입</button>
 		</div>
 	</div>
 </body>

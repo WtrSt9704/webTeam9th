@@ -1,7 +1,7 @@
 ﻿<%@ page contentType="text/html; charset=utf-8"%>
 <html>
 <head>
-<link type='text/css' rel='stylesheet' href='style.css'>
+<link type='text/css' rel='stylesheet' href='resources/style.css'>
 <title>회원가입</title>
 <%@ include file="dbconn.jsp" %>
 <script type="text/javascript">
@@ -48,7 +48,7 @@
 <body>
 	<div class="center">
 	<div style="text-align: center;">
-		<img class="logo" src="토론.png">
+		<img class="logo-start" src="resources/토론.png" style="width: max-content">
 		<div class="basicbox" style="text-align: center;">
 			<h4>회원가입</h4>
 			<form name="hwf" style="text-align: left;" action="processSignup.jsp" method="POST">
@@ -64,7 +64,7 @@
 				<input name="idchk" value="false" style="display:none; visibility:hidden;">
 			</form>
 			</div>
-			<button class="btt" onclick="check()">회원가입</button>
+			<button class="btt btt-login" onclick="check()">회원가입</button>
 		</div>
 	</div>
 </body>
