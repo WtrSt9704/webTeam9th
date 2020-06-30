@@ -136,3 +136,38 @@ tr, td {
 input[type=checkbox] {
 	-webkit-transform: scale(1.5);
 }
+
+.split-bar {
+	display: inline-block;
+	width: 1px;
+	height: 15px;
+	background: #ccc;
+	margin: 0 10px 0 6px;
+	vertical-align: -2px;
+}
+
+.name-label {
+	font-weight: bold;
+	margin-right: 8px;
+}
+
+.name-body {
+	font-size: large;
+}
+
+.text-body {
+	margin-top: 5%;
+	margin-bottom: 5%;
+	word-break: break-all;
+}
+
+.comment {
+	padding: 2%;
+	margin-top: 3%;
+	border-radius: 20px;
+}
+
+.comment-body {
+	margin-top: 1%;
+	word-break: break-all;
+}

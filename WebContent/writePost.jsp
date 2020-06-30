@@ -34,7 +34,9 @@
 <body>
 <div class="container-outer">
 	<div class="logo-main">
-		<img class="logo" src="resources/토론.png">
+		<a href="main.jsp">
+			<img class="logo" src="resources/토론.png">
+		</a>
 	</div>
 	<div class="sidebox">
 		<div class="basicbox user-info">

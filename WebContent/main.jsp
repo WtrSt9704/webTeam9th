@@ -17,7 +17,7 @@
 	ResultSet rs = null;
 	PreparedStatement pstmt = null;
 	String category, title;
-	int pros, comments, prosp, consp;
+	int num, pros, comments, prosp, consp;
 	try {
 		String sql = "select * from document";
 		pstmt = conn.prepareStatement(sql);
@@ -25,7 +25,9 @@
 %>
 <div class="container-outer">
 	<div class="logo-main">
-		<img class="logo" src="resources/토론.png">
+		<a href="main.jsp">
+			<img class="logo" src="resources/토론.png">
+		</a>
 	</div>
 	<div class="sidebox">
 		<div class="basicbox user-info">
@@ -61,6 +63,7 @@
 			<tbody>
 			<%
 				while(rs.next()) {
+					num = rs.getInt("num");
 					category = rs.getString("category");
 					title = rs.getString("title");
 					pros = rs.getInt("pros");
@@ -78,7 +81,7 @@
 			<tr>
 				<td><%=category %></td>
 				<td>
-					<a href="#"><%=title %></a>
+					<a href="read.jsp?num=<%=num %>"><%=title %></a>
 				</td>
 				<td>
 					<div class="progress">
