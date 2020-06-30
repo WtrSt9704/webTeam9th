@@ -1,19 +1,13 @@
-﻿<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <html>
 <head>
+
 	<title>토론사이트</title>
 	<link type='text/css' rel='stylesheet' href='resources/bootstrap.min.css'>
 	<link type='text/css' rel='stylesheet' href='resources/style.css'>
 	<script src="resources/sidebox.js"></script>
 	<script src="resources/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript">
-		// 새 토론 만들기 버튼 클릭
-		$(function() {
-			$('#write_post').click(function () {
-				location.href = "writePost.jsp";
-			});
-		});
-	</script>
+	<script type="text/javascript"></script>
 
 </head>
 
@@ -101,7 +95,7 @@
 		</table>
 
 		<div style="text-align: right;">
-			<button class="btn btn-primary" id="write_post">새 토론 만들기</button>
+			<button class="btn btn-primary" id="write_post" onclick="location = 'writePost.jsp'">새 토론 만들기</button>
 		</div>
 
 	</div>
@@ -122,3 +116,4 @@
 %>
 </body>
 </html>
+
