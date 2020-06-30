@@ -92,8 +92,14 @@ form[name="hwf"] {
 	border-radius: 10px;
 }
 
-.main {
+.container-outer {
 	margin: 2% 3%;
+}
+
+.container-inner {
+	width: 70%;
+	margin: 1% 5%;
+	float: left;
 }
 
 div.user-info {
@@ -123,12 +129,10 @@ div.user-info {
 	float: left;
 }
 
-.main-list {
-	width: 70%;
-	margin: 1% 5%;
-	float: left;
-}
-
 tr, td {
 	text-align: center;
+}
+
+input[type=checkbox] {
+	-webkit-transform: scale(1.5);
 }

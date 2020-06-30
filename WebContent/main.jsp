@@ -1,20 +1,30 @@
 ﻿<%@ page contentType="text/html; charset=utf-8"%>
 <html>
 <head>
-<link type='text/css' rel='stylesheet' href='resources/style.css'>
-<link type='text/css' rel='stylesheet' href='resources/bootstrap.min.css'>
-<title>토론사이트</title>
+	<title>토론사이트</title>
+	<link type='text/css' rel='stylesheet' href='resources/bootstrap.min.css'>
+	<link type='text/css' rel='stylesheet' href='resources/style.css'>
+	<script src="resources/sidebox.js"></script>
+	<script src="resources/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">
+		// 새 토론 만들기 버튼 클릭
+		$(function() {
+			$('#write_post').click(function () {
+				location.href = "writePost.jsp";
+			});
+		});
+	</script>
 </head>
 <body>
-<div class="main">
+<div class="container-outer">
 	<div class="logo-main">
 		<img class="logo" src="resources/토론.png">
 	</div>
 	<div class="sidebox">
 		<div class="basicbox user-info">
 			<%=session.getAttribute("name") %>님 환영합니다. <br>
-			<button class="btt">마이페이지</button>
-			<button class="btt">로그아웃</button>
+			<button class="btt" onclick="mypage()">마이페이지</button>
+			<button class="btt" onclick="logout()">로그아웃</button>
 		</div>
 
 		<div class="side-menu">
@@ -29,7 +39,7 @@
 		</div>
 	</div>
 
-	<div class="main-list">
+	<div class="container-inner">
 		<table class="table table-striped table-bordered table-condensed">
 			<thead>
 			<tr>
@@ -175,10 +185,10 @@
 		</table>
 
 		<div style="text-align: right;">
-			<button class="btn btn-primary">글 쓰기</button>
+			<button class="btn btn-primary" id="write_post">새 토론 만들기</button>
 		</div>
 	</div>
 
-	</div>
+</div>
 </body>
 </html>
