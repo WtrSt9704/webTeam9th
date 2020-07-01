@@ -76,9 +76,13 @@ $(function() {
 
 function addcom(){
 	var form = document.comment_form;
-	form.content.value = String(form.content.value).replace(/ /gi, "&nbsp;")
-	form.content.value = String(form.content.value).replace(/\n/gi, "<br>")
-	form.submit();
+	if(form.content.value.length == 0){
+		alert("의견의 내용을 입력해야 합니다.");
+	}else{
+		form.content.value = String(form.content.value).replace(/ /gi, "&nbsp;")
+		form.content.value = String(form.content.value).replace(/\n/gi, "<br>")
+		form.submit();
+	}
 }
 function comup(s){
 	if(<%= is_login%>){

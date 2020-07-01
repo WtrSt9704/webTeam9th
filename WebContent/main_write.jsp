@@ -7,12 +7,19 @@
 </style>
 <script>
 	function replacesubmit(){
+		
 		var form = document.writeform;
-		form.subject.value = String(form.subject.value).replace(/ /gi, "&nbsp;");
-		form.subject.value = String(form.subject.value).replace(/\n/gi, "<br>");
-		form.content.value = String(form.content.value).replace(/ /gi, "&nbsp;")
-		form.content.value = String(form.content.value).replace(/\n/gi, "<br>")
-		form.submit();
+		if(form.subject.value.length == 0){
+			alert("제목을 입력해야 합니다.");
+		}else if(form.content.value.length == 0){
+			alert("내용을 입력해야 합니다.");
+		}else{
+			form.subject.value = String(form.subject.value).replace(/ /gi, "&nbsp;");
+			form.subject.value = String(form.subject.value).replace(/\n/gi, "<br>");
+			form.content.value = String(form.content.value).replace(/ /gi, "&nbsp;")
+			form.content.value = String(form.content.value).replace(/\n/gi, "<br>")
+			form.submit();
+		}
 	}
 </script>
 </head>
