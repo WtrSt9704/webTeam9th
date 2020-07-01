@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//WebContent/header.jsp=UTF-8
+encoding//WebContent/main_header.jsp=UTF-8
+encoding//WebContent/main_nav.jsp=UTF-16
+encoding//WebContent/member.sql=UTF-8
+encoding//WebContent/memberCheck.jsp=UTF-8
+encoding//src/dao/Board.java=UTF-8
+encoding//src/dao/BoardDAO.java=UTF-8
+encoding//src/dao/Categorys.java=UTF-8
+encoding//src/dao/Comment.java=UTF-8

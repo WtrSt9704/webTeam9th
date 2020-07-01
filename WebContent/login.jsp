@@ -24,7 +24,7 @@
 <body>
 	<div class="center">
 		<div>
-			<div><img class="logo" src="토론.png"></div>
+			<div><img class="logo" src="resources/images/logo.png"></div>
 			<div class="basicbox">
 				<h2>로그인</h2>
 				<form name="hwf" action="processLogin.jsp" method="POST">

@@ -48,7 +48,7 @@
 <body>
 	<div class="center">
 	<div style="text-align: center;">
-		<img class="logo" src="토론.png">
+		<img class="logo" src="resources/images/logo.png">
 		<div class="basicbox" style="text-align: center;">
 			<h4>회원가입</h4>
 			<form name="hwf" style="text-align: left;" action="processSignup.jsp" method="POST">

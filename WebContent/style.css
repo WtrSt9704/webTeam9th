@@ -34,6 +34,18 @@ div.basicbox{
 	background-color: #CC3D3D;
 }
 
+.bttproperty{
+	cursor: pointer;
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	user-select:none;
+}
+.bttproperty:hover{
+	background-color: #CC3D3D;
+}
+
 div.center{
 	width: 100%;
 	height: 100vh;
