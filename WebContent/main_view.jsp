@@ -25,6 +25,8 @@
 	
 	ArrayList<Comment> cons_list = dao.getComments(cur_b.getBoard_id(), "c", 0);
 	int cons_count = cons_list.size();
+	
+	boolean is_login = session.getAttribute("id") != null;
 %>
 <html>
 <head>
@@ -71,17 +73,21 @@ $(function() {
 		}
 	});
 });
+
 function addcom(){
-	//var form = document.comment_form;
-	//url = "main_comment_proc.jsp?stand=" + hwf.stand.value + "&passwd="+hwf.passwd.value;
-	//window.open(url,"id check", "toolbar=no, width=300, height=150, top=150, left=150");
-	document.comment_form.submit();
-	//window.location.reload();
+	var form = document.comment_form;
+	form.content.value = String(form.content.value).replace(/ /gi, "&nbsp;")
+	form.content.value = String(form.content.value).replace(/\n/gi, "<br>")
+	form.submit();
 }
 function comup(s){
+	if(<%= is_login%>){
 	var form = document.comment_form;
 	url = "comup_proc.jsp?cid=" + s;
 	window.open(url,"id check", "toolbar=no, width=300, height=150, top=150, left=150");
+	}else{
+		alert("의견 공감은 로그인 이후 가능합니다.")
+	}
 	//form.load();
 	//window.location.reload();
 }
@@ -130,7 +136,6 @@ function oppose(s){
 				</td></tr>
 			</tbody>
 		</table>
-		<form name="comment_form" action="main_comment_proc.jsp">
 			<div class="row">
 				<div class="col-md" style="text-align:left">
 					<table class="table table-striped" style="border: 1px solid #dddddd">
@@ -196,6 +201,7 @@ function oppose(s){
 					의견을 입력하려면 로그인이 필요합니다.
 				</li></ul>
 			<%}else{%>
+				<form name="comment_form" action="main_comment_proc.jsp">
 				<div class="container">
 
 				    <div class="btn-group" role="group" aria-label="...">
@@ -209,10 +215,11 @@ function oppose(s){
 				<input type="hidden" name="opposition" value="0"/>
 				<textarea rows"3" class="form-control" placeholder="의견" name="content" maxlength="400" required></textarea>
 				<br>
-				<button class="btn btn-primary pull-right" onclick="addcom()">의견쓰기</button>
 			</td></tr>
+			</form>
+			<button class="btn btn-primary pull-right" onclick="addcom()">의견쓰기</button>
 			<%} %>
-		</form>
+		
 	</div>
 </li></ul>
 </div>

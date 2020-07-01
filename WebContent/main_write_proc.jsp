@@ -21,8 +21,7 @@
 	String subject = request.getParameter("subject");	
 	String content = request.getParameter("content");	
 	String category = request.getParameter("category");
-	session.setAttribute("category", request.getParameter(category));
-
+	session.setAttribute("category", request.getParameter("category"));
 	//response.sendRedirect("main_boards.jsp");
 	BoardDAO dao = BoardDAO.getInstance();
 	String date = dao.getDate();

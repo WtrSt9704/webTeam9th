@@ -5,6 +5,16 @@
 <title>토론사이트</title>
 <style>
 </style>
+<script>
+	function replacesubmit(){
+		var form = document.writeform;
+		form.subject.value = String(form.subject.value).replace(/ /gi, "&nbsp;");
+		form.subject.value = String(form.subject.value).replace(/\n/gi, "<br>");
+		form.content.value = String(form.content.value).replace(/ /gi, "&nbsp;")
+		form.content.value = String(form.content.value).replace(/\n/gi, "<br>")
+		form.submit();
+	}
+</script>
 </head>
 <body>
 <% if(session.getAttribute("id") == null || session.getAttribute("name") == null){
@@ -17,19 +27,23 @@
 <% String cur_category = session.getAttribute("category") == null? "":session.getAttribute("category").toString();%>
 <ul class="list-group"><li class="list-group-item">
 	<div class="container">
-		<form method="post" action="main_write_proc.jsp">
+		<form name="writeform" method="post" action="main_write_proc.jsp">
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
 						
 						<th colspan="4" style="background-color: #eeeeee; text-align: center;">
+						<% if("공지사항".equals(cur_category) || "건의".equals(cur_category)){ %>
+							<%=cur_category %>
+							<input type="hidden" name="category" value="<%=cur_category %>"/>
+						<%}else{ %>
 						<select name="category">
 							<% for(int i = 0; i < total; i ++ ){%>
 								<option class="list-group-item bttproperty" value="<%=Categorys.category.values()[i] %>" <%if(Categorys.category.values()[i].toString().equals(cur_category)){ %> selected<%} %>><%=Categorys.category.values()[i] %></option>
 							<% }%>
 						</select>
 							 게시판
-
+							 <%} %>
 						</th>
 					</tr>
 				</thead>
@@ -39,13 +53,12 @@
 					</tr>
 					<tr>
 						<td>
-							<textarea class="form-control" placeholder="글 내용" name="content" maxlength="2048" style="height: 350px;" required>
-						</textarea></td>
+							<textarea class="form-control" placeholder="글 내용" name="content" maxlength="2048" style="height: 350px;" required></textarea></td>
 					</tr>
 				</tbody>
-			</table>	
-			<input type="submit" class="btn btn-primary pull-right" value="글쓰기" />
+			</table>
 		</form>
+		<button class="btn btn-primary pull-right" onclick="replacesubmit()">글쓰기</button>
 	</div>
 </li></ul>
 </div>

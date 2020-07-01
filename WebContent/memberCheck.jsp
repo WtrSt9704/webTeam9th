@@ -9,7 +9,7 @@
 		window.close();
 	}
 </script>
-<link type='text/css' rel='stylesheet' href='resources/style.css'>
+<link type='text/css' rel='stylesheet' href='style.css'></link>
 <title>등록</title>
 </head>
 <body>

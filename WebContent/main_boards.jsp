@@ -15,6 +15,10 @@ if("전체".equals(cat)){
 	boardlist = dao.getBoards_simple(cat, 0);
 }
 int bdlstsz = boardlist.size();
+String admin = "asdfghjk";
+String id = "";
+if(session.getAttribute("id") != null)
+	id = session.getAttribute("id").toString();
 %>
 <html>
 <head>
@@ -39,7 +43,11 @@ function view(s){
 		    		<h3 class="panel-title"><%=session.getAttribute("category").toString()%> 게시판</h3>
 		    	</div>
 		    	<div class="col-md" style="text-align:right">
-		    		<a href="main_write.jsp"><button class="btn btn-primary pull-right" onclick="write()">토론 열기</button></a>
+		    		<% if("공지사항".equals(cat) == false){ %>
+		    		<a href="main_write.jsp"><button class="btn btn-primary pull-right" onclick="write()"><% if("건의".equals(cat)){ %>건의하기<%}else{ %>토론 열기<%} %></button></a>
+		    		<%} else if(admin.equals(id)){ %>
+		    		<a href="main_write.jsp"><button class="btn btn-primary pull-right" onclick="write()">공지 작성</button></a>
+		    		<%} %>
 		    	</div>
 		  </div>
 			<ul class="list-group">
