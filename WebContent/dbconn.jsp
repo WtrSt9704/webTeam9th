@@ -1,8 +1,8 @@
-<%@ page import="java.sql.*"%> 
+<%@ page import="java.sql.*"%>
 <%
 	Connection conn = null;
 
-	String url = "jdbc:mysql://localhost:3306/JSPBookDB?serverTimezone=UTC";
+	String url = "jdbc:mysql://localhost:3306/DEBATE?serverTimezone=UTC";
 	String user = "root";
 	String password = "1234";
 

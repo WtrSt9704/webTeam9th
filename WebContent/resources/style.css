@@ -2,6 +2,7 @@ input[type="text"], input[type="password"] {
 	border-radius: 5px;
 }
 
+
 div.basicbox{
 	text-align: center;
 	border-radius: 5px;
@@ -10,7 +11,6 @@ div.basicbox{
 }
 
 .btt{
-	width: 90%;
 	border: 0;
 	font-size: 1em;
 	border-radius: 5px;
@@ -28,6 +28,10 @@ div.basicbox{
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	user-select:none;
+}
+
+.btt-login {
+	width: 90%;
 }
 
 .btt:hover{
@@ -79,6 +83,103 @@ form[name="hwf"] {
 	padding-bottom: 10px;
 }
 
+.logo-start {
+	width: 100%;
+}
+
 .logo {
-	width:300px;
+	height: 100%;
+}
+
+
+/* 로그인 이후 */
+
+.logo-main {
+	height: 25%;
+	width: 100%;
+	margin-bottom: 3%;
+	padding: 1%;
+	text-align: center;
+	background: #eeeeee;
+	border-radius: 10px;
+}
+
+.container-outer {
+	margin: 2% 3%;
+}
+
+.container-inner {
+	width: 70%;
+	margin: 1% 5%;
+	float: left;
+}
+
+div.user-info {
+	padding: 20px;
+}
+
+.sidebox {
+	width: 20%;
+	float: left;
+}
+
+
+.side-menu {
+	margin-top: 10%;
+	font-size: 2em;
+	color: #aaaaaa;
+	text-align: center;
+}
+
+.side-list {
+	margin: 10px;
+}
+
+.table-content {
+	width: 70%;
+	margin: 5%;
+	float: left;
+}
+
+tr, td {
+	text-align: center;
+}
+
+input[type=checkbox] {
+	-webkit-transform: scale(1.5);
+}
+
+.split-bar {
+	display: inline-block;
+	width: 1px;
+	height: 15px;
+	background: #ccc;
+	margin: 0 10px 0 6px;
+	vertical-align: -2px;
+}
+
+.name-label {
+	font-weight: bold;
+	margin-right: 8px;
+}
+
+.name-body {
+	font-size: large;
+}
+
+.text-body {
+	margin-top: 5%;
+	margin-bottom: 5%;
+	word-break: break-all;
+}
+
+.comment {
+	padding: 2%;
+	margin-top: 3%;
+	border-radius: 20px;
+}
+
+.comment-body {
+	margin-top: 1%;
+	word-break: break-all;
 }

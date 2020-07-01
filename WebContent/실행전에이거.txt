@@ -1,0 +1,45 @@
+아래 내용 전체 mysql 콘솔에서 붙여넣기 후 서버 실행
+
+DROP DATABASE IF EXISTS DEBATE;
+CREATE DATABASE DEBATE;
+USE DEBATE;
+
+CREATE TABLE member(
+    id VARCHAR(20) NOT NULL PRIMARY KEY,
+    passwd  VARCHAR(20),
+    name VARCHAR(30)
+);
+
+CREATE TABLE document(
+    num INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id VARCHAR(20),
+    name VARCHAR(30),
+    category VARCHAR(10),
+    title VARCHAR(100),
+    text VARCHAR(1000),
+    pros INT(11),
+    cons INT(11),
+    comments INT(11),
+    visit INT(11)
+);
+
+CREATE TABLE comment(
+    num INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    docnum INT(11),
+    name VARCHAR(30),
+    text VARCHAR(1000),
+    proscons INT(1)
+);
+INSERT INTO member VALUES('test1', 'rkskek123!', 'abc');
+INSERT INTO member VALUES('test2', 'qlqjs123!', 'def');
+INSERT INTO member VALUES('test3', 'passwd123!', 'ghi');
+INSERT INTO member VALUES('test4', 'qwerty123!', 'jkl');
+
+INSERT INTO document(id, name, category, title, text, pros, cons, comments, visit) VALUES('test1', 'abc', '문화', '토론 1', '내용 1', 1, 2, 3, 10);
+INSERT INTO document(id, name, category, title, text, pros, cons, comments, visit) VALUES('test2', 'def', '정치', '토론 2', '내용 2', 1, 0, 1, 3);
+INSERT INTO document(id, name, category, title, text, pros, cons, comments, visit) VALUES('test3', 'ghi', '사회', '토론 3', '내용 3', 0, 0, 0, 0);
+
+INSERT INTO comment(docnum, name, text, proscons) VALUES(1, 'def', '의견 1', 1);
+INSERT INTO comment(docnum, name, text, proscons) VALUES(1, 'ghi', '의견 2', 0);
+INSERT INTO comment(docnum, name, text, proscons) VALUES(1, 'jkl', '의견 3', 0);
+INSERT INTO comment(docnum, name, text, proscons) VALUES(2, 'def', '의견 4', 1);
