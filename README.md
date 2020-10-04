@@ -1,4 +1,10 @@
 # webTeam9th
+토론 전용 커뮤니티
+
+- 게시판
+- 댓글
+- 추천
+- 지목
 
 실행방법<br>
 DB정보 : jspbookdb<br>
